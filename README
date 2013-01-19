@@ -1,15 +1,16 @@
-This patch and Makefile will yield a static library build of Python2.7 (32bit)
+This patch and Makefile will yield a static library build of Python2.7.3 (32bit)
 for Windows, making it easy to embed python into your application.
 
 Prerequisites:
 
-* Python-2.7.tgz
-* openssl-0.9.8o.tar.gz
+* Python-2.7.3.tgz
+* openssl-1.0.1c.tar.gz
 
 * nasm 2.09.10 installed, copy nasm.exe to nasmw.exe
 * ActivePerl 32-bit binary distribution
 * 7zip installed
 * Windows SDK 7.1
+* GNU patch as patch.exe in PATH
 
 Run the build:
 
@@ -17,8 +18,8 @@ call "C:\Program Files\Microsoft SDKs\Windows\v7.1\Bin\SetEnv.Cmd" /RELEASE /x86
 SET PATH=C:\Program Files\7-Zip;C:\Program Files (x86)\nasm;%PATH%
 nmake
 
-This will build OpenSSL and then python27.lib in Python-2.7\PCbuild. If its about 17MB in size, it's right. 
+This will build OpenSSL and then pythonembed.lib in Python-2.7.3\PCbuild. If its about 17MB in size, it's right. 
 
 
-Note that the final python27.lib will have dynamic loading of external C extensions
+Note that the final pythonembed.lib will have dynamic loading of external C extensions
 disabled.
